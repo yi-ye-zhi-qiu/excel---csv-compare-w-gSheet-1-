@@ -34,6 +34,11 @@ function on_button_click(){
 * Now click on "Send e-mail" from your gSheet toolbar, and voila!
 
 ## Helpful tips/explanation! ##
+
+### Where can I see an example gSheet and Excel? :fallen_leaf: ###
+gSheet: [gSheet!](https://docs.google.com/spreadsheets/d/1cdogBfs6bDuhEgn38_6e2VIxj-OaMBYovXQOo-vMyyY/edit?usp=sharing) 
+excel: [excel!](https://drive.google.com/file/d/1qB8GNvQiItjJZWtT8dvQe-hc6VGVaJ4w/view?usp=sharing)
+
 ### How does the excel get turned into a csv in our drive folder? :sheep: ###
 ```javascript
 
