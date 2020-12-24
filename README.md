@@ -222,7 +222,7 @@ for (var i=0 ; i<sheets.length ; i++) if(sheets[i].getName().indexOf('apple')>-1
 ```javascript
 //Let's say you've got an array of inconsistent data points between your gSheet and your Excel called inconsistent_data_points
 
-var inconsistent_data_points = [["Apples", 5, 3], ["Oranges", 10, 2], ["Pineapples", "n/a", "n/a"]]
+var emaildata = [["Apples", 5, 3], ["Oranges", 10, 2], ["Pineapples", "n/a", "n/a"]]
 
 //Like your Excel is saying you have 5 apples but your gSheet says 3, that you have 10 Oranges 
 //but your gSheet says 2, and for pineapples we just don't know..
