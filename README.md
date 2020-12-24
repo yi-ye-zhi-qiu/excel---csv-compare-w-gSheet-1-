@@ -255,7 +255,7 @@ var inconsistent_data_points = [["Apples", 5, 3], ["Oranges", 10, 2], ["Pineappl
       html += "</table>"
 
       MailApp.sendEmail({
-        to: "yeqiu194@gmail.com",
+        to: "send_to@gmail.com",
         subject: "automated message about fruits",
         htmlBody: '<h1 style="padding-top: 50px; margin: 10px; font-size: 30px; font-weight: 300; text-align: left; margin-bottom: -15px;">Fruit Data inconsistencies!</h1>' +
         html
