@@ -39,6 +39,9 @@ function on_button_click(){
 gSheet: [gSheet!](https://docs.google.com/spreadsheets/d/1cdogBfs6bDuhEgn38_6e2VIxj-OaMBYovXQOo-vMyyY/edit?usp=sharing) 
 excel: [excel!](https://drive.google.com/file/d/1qB8GNvQiItjJZWtT8dvQe-hc6VGVaJ4w/view?usp=sharing)
 
+### How can I debug this easily? ###
+* Use `Tools -> Script Editor -> View -> Stackdriver Logging -> Apps Script Dashboard` & click on the latest run! Tip: use `Logger.log()` as opposed to `console.log()`!!
+
 ### How does the excel get turned into a csv in our drive folder? :sheep: ###
 ```javascript
 
