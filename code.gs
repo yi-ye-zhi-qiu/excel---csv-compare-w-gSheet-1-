@@ -16,7 +16,7 @@ function on_button_click(){
     ui.ButtonSet.YES_NO);
     if (result == ui.Button.YES) {
       send_email();
-      ui.alert('OK, done! This does NOT change tracker data.');
+      ui.alert('OK, done!');
     } else {
       ui.alert('ok maybe next time...')
     }
@@ -238,6 +238,14 @@ function send_email() {
 
             function arr_indexing(a, b, c){
               //want to check if any element in a has element[0] = b[0]
+              /**
+              This function takes in @param {a} , an array of arrays, @param {b}, an array and @param {c}, a splice index.
+              It'll check if the first element of b is equal to the first element of any arrays in a.
+              If so, we add in b[c] at position c of a, splicing the index before it.
+              
+              This really isn't that useful it's just so that I didn't have to re-type the function a bunch of time below...
+              
+              **/
               const one_equal = arr => arr.some(function(e) {return e[0] === b[0]})
               if(one_equal(a) === true){
                 a.forEach(function(element) {
@@ -258,7 +266,6 @@ function send_email() {
               Logger.log(['amount of fruit sold for ' + this_fruit + ' needs to be updated to: ' + JSON_amount_sold])
               
               let insert = [this_fruit, JSON_amount_sold, null, null]
-              Logger.log(insert)
               arr_indexing(emaildata, insert, 1);
               
             }
@@ -268,7 +275,6 @@ function send_email() {
               Logger.log(['amount in warehouse for ' + this_fruit + ' needs to be updated to: ' + JSON_amount_remaining])
               
               let insert = [this_fruit, null, JSON_amount_remaining, null]
-              Logger.log(insert)
               arr_indexing(emaildata, insert, 2)
             }
 
@@ -277,7 +283,6 @@ function send_email() {
               Logger.log(['last shipment date for ' + this_fruit + ' needs to be updated to: ' + JSON_last_shipment])
               
               let insert = [this_fruit, null, null, JSON_last_shipment]
-              Logger.log(insert)
               arr_indexing(emaildata, insert, 3);         
               
             }
@@ -298,8 +303,9 @@ function send_email() {
     var TRTDFORMAT = 'style="padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px;text-align:left;vertical-align:middle;font-weight:300;font-size:12px;"'
     //have to use inline-css for gMail API htmlBody to work properly
 
-    var html = '<table ' + TABLEFORMAT + '><th ' + THFORMAT + '></th>';
-      for (var i = 0; i < emaildata.length; i++) {
+    var html = '<h2 style="font-size: 12px; font-weight: 200; text-align: left; margin: 10px;">the following is on the excel but different on your gSheet!</h2>'+
+    '<table ' + TABLEFORMAT + '><th ' + THFORMAT + '></th>';
+    for (var i = 0; i < emaildata.length; i++) {
         var each_row = '<tr ' + TRTDFORMAT + '><td ' +TRTDFORMAT + '>';
         for (var j = 0; j < emaildata[i].length; j++) {
           if(emaildata[i][j] === "n/a"){
