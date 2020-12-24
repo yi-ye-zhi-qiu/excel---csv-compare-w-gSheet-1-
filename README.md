@@ -33,6 +33,8 @@ function on_button_click(){
 
 * Now click on "Send e-mail" from your gSheet toolbar, and voila you'll send something like this!
 
+![Demo Email](../assets/shown_on_github_excel_compare.jpg?raw=true)
+
 ## Helpful tips/explanation! ##
 
 ### Where can I see an example gSheet and Excel? :fallen_leaf: ###
