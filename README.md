@@ -31,13 +31,13 @@ function on_button_click(){
 
 ```
 
-* Now click on "Send e-mail" from your gSheet toolbar, and voila!
+* Now click on "Send e-mail" from your gSheet toolbar, and voila you'll send something like this!
 
 ## Helpful tips/explanation! ##
 
 ### Where can I see an example gSheet and Excel? :fallen_leaf: ###
-gSheet: [gSheet!](https://docs.google.com/spreadsheets/d/1cdogBfs6bDuhEgn38_6e2VIxj-OaMBYovXQOo-vMyyY/edit?usp=sharing) 
-excel: [excel!](https://drive.google.com/file/d/1qB8GNvQiItjJZWtT8dvQe-hc6VGVaJ4w/view?usp=sharing)
+[gSheet!](https://docs.google.com/spreadsheets/d/1cdogBfs6bDuhEgn38_6e2VIxj-OaMBYovXQOo-vMyyY/edit?usp=sharing) 
+[excel!](https://drive.google.com/file/d/1qB8GNvQiItjJZWtT8dvQe-hc6VGVaJ4w/view?usp=sharing)
 
 ### How can I debug this easily? ###
 * Use `Tools -> Script Editor -> View -> Stackdriver Logging -> Apps Script Dashboard` & click on the latest run! Tip: use `Logger.log()` as opposed to `console.log()`!!
