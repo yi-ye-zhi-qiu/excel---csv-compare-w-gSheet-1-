@@ -2,7 +2,7 @@
 ## Upload an excel to gDrive. This google script converts it to csv, grabs the data &amp; compares it to what's on a gSheet ##
 
 * Upload Excel to gDrive
-* On gSheet, Tools -> Script: run `OnOpen()` :boom:
+* On gSheet, `Tools -> Script Editor`: paste in `code.gs`, then run `OnOpen()` :boom: 
 
 ```javascript
 
@@ -28,6 +28,8 @@ function on_button_click(){
       } else {
       }
 }
+
+// the rest of code.gs below...
 
 ```
 
