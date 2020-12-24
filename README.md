@@ -226,39 +226,38 @@ var inconsistent_data_points = [["Apples", 5, 3], ["Oranges", 10, 2], ["Pineappl
 
 //Like your Excel is saying you have 5 apples but your gSheet says 3, that you have 10 Oranges 
 //but your gSheet says 2, and for pineapples we just don't know..
+    var perrow = 3
+    var TABLEFORMAT = '"font-family:arial, sans-serif;border-collapse:collapse;"'
+    var THFORMAT = 'style="padding-top:10px;padding-bottom:20px;padding-right:15px;padding-left:15px;text-align:left;font-weight:200;font-size:12px;border-bottom-width:5px;border-bottom-style:solid;border-bottom-color:#42A5F5; background-color: #4FC3F7"'
+    var TRTDFORMAT = 'style="padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px;text-align:left;vertical-align:middle;font-weight:300;font-size:12px;"'
+    //have to use inline-css for gMail API htmlBody to work properly
 
-var perrow = 3
-//we have 3 data points per row of our table
-
-var TABLEFORMAT = '"font-family:arial, sans-serif;border-collapse:collapse;"'
-var THFORMAT = 'style="padding-top:20px;padding-bottom:20px;padding-right:15px;padding-left:15px;text-align:left;font-weight:200;font-size:12px;"'
-var TRTDFORMAT = 'style="padding-top:5px;padding-bottom:5px;padding-right:5px;padding-left:5px;text-align:left;vertical-align:middle;font-weight:300;font-size:12px;"'
-//we have to use in-line css with the gMail API
-   
- var html = '<table ' + TABLEFORMAT + '><th ' + THFORMAT + '></th>';
- for (var i = 0; i < emaildata.length; i++) {
-     var further_beyond = '<tr ' + TRTDFORMAT + '><td ' +TRTDFORMAT + '>';
-     for (var j = 0; j < emaildata[i].length; j++) {
-       if(emaildata[i][j] === "n/a"){
-         emaildata[i][j] === ""
+    var html = '<h2 style="font-size: 12px; font-weight: 200; text-align: left; margin: 10px;">the following is on the excel but different on your gSheet!</h2>'+
+    '<table ' + TABLEFORMAT + '><th ' + THFORMAT + '></th>';
+      for (var i = 0; i < emaildata.length; i++) {
+        var each_row = '<tr ' + TRTDFORMAT + '><td ' +TRTDFORMAT + '>';
+        for (var j = 0; j < emaildata[i].length; j++) {
+          if(emaildata[i][j] === "n/a"){
+            emaildata[i][j] === ""
+          }
+          else{
+            each_row += emaildata[i][j]
+          }
+          each_row += '</td><td ' + TRTDFORMAT + '>';
         }
-       else{
-         further_beyond += emaildata[i][j]
-       }
-       further_beyond += '</td><td ' + TRTDFORMAT + '>';
-     }
-     html += '<td ' +TRTDFORMAT + '>'+further_beyond+'</td>'
-     var next = i+1;
-     if (next%perrow==0 && next!=emaildata.length){
-       html +="</tr><tr>";
-     }
-  }
-  html += "</table>"
-     
-  MailApp.sendEmail({
-        to: "send_to@gmail.com",
-        subject: "automated message",
-        htmlBody: '<h1 style="padding-top: 50px; margin: 20px; font-size: 30px; font-weight: 300; text-align: left; margin-bottom: -15px;">Data</h1>' +
+        html += '<td ' +TRTDFORMAT + '>'+each_row+'</td>'
+        //html += "<td>" + further_beyond + "</td>";
+        var next = i+1;
+        if (next%perrow==0 && next!=emaildata.length){
+          html +="</tr><tr>";
+        }
+      }
+      html += "</table>"
+
+      MailApp.sendEmail({
+        to: "yeqiu194@gmail.com",
+        subject: "automated message about fruits",
+        htmlBody: '<h1 style="padding-top: 50px; margin: 10px; font-size: 30px; font-weight: 300; text-align: left; margin-bottom: -15px;">Fruit Data inconsistencies!</h1>' +
         html
       })
 ```
