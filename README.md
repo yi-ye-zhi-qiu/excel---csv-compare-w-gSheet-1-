@@ -1,41 +1,18 @@
-# excel -> csv & compare w/ gSheet!!1
-## Upload an excel to gDrive. This google script converts it to csv, grabs the data &amp; compares it to what's on a gSheet ##
+# Excel -> Csv, compare to gSheet! #
 
-* Upload Excel to gDrive
-* On gSheet, `Tools -> Script Editor`: paste in `code.gs`, then run `OnOpen()` :boom: 
+## How to run it ##
 
-```javascript
-
-function onOpen(){
-  var ui = SpreadsheetApp.getUi();
-  ui.createMenu('Send e-mail')
-    .addItem('Send e-mail with my excel data compared to my gSheet !_!', 'on_button_click')
-    //clicking that will trigger on_button_click
-    .addToUi();
-}
-
-//Customize what happens when you click the button!
-
-function on_button_click(){
-     var ui = SpreadsheetApp.getUi();
-     var result = ui.alert(
-     'Please confirm',
-     'Are you sure you want to send an email?',
-      ui.ButtonSet.YES_NO);
-      if (result == ui.Button.YES) {
-        send_email(); //send_email is our main function
-        ui.alert('OK, done!');
-      } else {
-      }
-}
-
-// the rest of code.gs below...
-
-```
-
-* Now click on "Send e-mail" from your gSheet toolbar, and voila you'll send something like this!
+* Copy this [gSheet!](https://docs.google.com/spreadsheets/d/1cdogBfs6bDuhEgn38_6e2VIxj-OaMBYovXQOo-vMyyY/edit?usp=sharing) example
+* Create a gDrive folder, copy this 
+  [excel!](https://drive.google.com/file/d/1qB8GNvQiItjJZWtT8dvQe-hc6VGVaJ4w/view?usp=sharing) and upload it to the gDrive (filename must have today's yyyy-mm-dd)
+* On gSheet, `Tools -> Script Editor`: paste in `code.gs`, change `var fldr=DriveApp.getFolderById("your_folder_id_here!");` to ID of the folder you just made (line 54, code.gs), `to: "send_to@gmail.com",` to any email (line 329, code.gs)
+* Run `OnOpen()` :boom: 
+* Allow authorization
+* Go back to gSheet & click "Send e-mail" from the toolbar. Confirm & voila you will see an email like this!
 
 ![Demo Email](../assets/demo_email.jpg?raw=true)
+
+- - - -
 
 ## Helpful tips/explanation! ##
 
